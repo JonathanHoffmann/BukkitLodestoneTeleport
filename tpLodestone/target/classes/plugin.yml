@@ -1,0 +1,4 @@
+name: teleportLodestone
+version: 1
+main: teleportlodestone.tplodestone.Main
+api-version: 1.18
