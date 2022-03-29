@@ -30,19 +30,23 @@ public class lodestoneListener implements Listener {
 
                 CompassMeta compassMeta = (CompassMeta) item.getItemMeta();
                 if (compassMeta.hasLodestone()) {
-                    if (player.getLevel() >= 3) {
-                        try {
-                            player.setLevel(player.getLevel() - 3);
-                            Location location = compassMeta.getLodestone();
-                            player.teleport(location);
+                    Location location = compassMeta.getLodestone();
+                    Location locationPlus1 = location;
+                    locationPlus1.setY(location.getY() + 1);
+                    Location locationPlus2 = location;
+                    locationPlus2.setY(location.getY() + 2);
+                    
+                    try {
+                        if (locationPlus1.getBlock().isPassable() && locationPlus2.getBlock().isPassable()) {
+                            player.teleport(locationPlus1);
                             player.sendMessage(ChatColor.YELLOW + "Player Teleported");
                             e.setCancelled(true);
-                        } catch (NullPointerException exception) {
-                            exception.printStackTrace();
-                            player.sendMessage(ChatColor.RED + "Teleportation Failed");
+                        } else {
+                            player.sendMessage(ChatColor.RED + "Lodestone is obstructed");
                         }
-                    } else {
-                        player.sendMessage(ChatColor.RED + "You need to pay 3 Levels to be teleported");
+                    } catch (NullPointerException exception) {
+                        exception.printStackTrace();
+                        player.sendMessage(ChatColor.RED + "Teleportation Failed");
                     }
                 }
             }
