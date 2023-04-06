@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BukkitLodestoneTeleport:jar">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="archive" name="BukkitLodestoneTeleport.jar">
+      <element id="module-output" name="BukkitLodestoneTeleport" />
+    </root>
+  </artifact>
+</component>

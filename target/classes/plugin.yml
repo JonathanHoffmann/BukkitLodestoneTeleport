@@ -1,4 +1,4 @@
-name: teleportLodestone
-version: 1.1.2
-main: teleportlodestone.tplodestone.Main
+name: LodestoneTeleport
+version: 1.2
+main: me.Jonnyfant.LodestoneTeleport.Main
 api-version: 1.18
